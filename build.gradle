@@ -1,0 +1,43 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.1'
+    id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+    id 'java'
+}
+
+group = 'com.sample'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.4'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    runtimeOnly 'mysql:mysql-connector-java'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    //retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile 'com.squareup.retrofit2:converter-jackson:2.3.0'
+    compile 'com.squareup.okhttp3:logging-interceptor:3.8.0'
+    compile 'com.vdurmont:emoji-java:4.0.0'
+
+    // JSON Parsing
+    compile 'com.google.code.gson:gson:2.6.1'
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
+}
+
+test {
+    useJUnitPlatform()
+}
