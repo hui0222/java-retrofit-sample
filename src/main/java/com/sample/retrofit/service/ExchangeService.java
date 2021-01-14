@@ -1,6 +1,7 @@
 package com.sample.retrofit.service;
 
 import com.sample.retrofit.domain.Exchange;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Response;
 import retrofit2.http.Field;
@@ -11,6 +12,6 @@ import java.io.IOException;
 
 public interface ExchangeService {
 
-    public void getExchangeInfo(Exchange param) throws IOException;
-
+    void getExchangeInfo(Exchange param) throws IOException;
+    Response<ResponseBody> responseExchange(Exchange param) throws IOException ;
 }

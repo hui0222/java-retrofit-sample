@@ -1,5 +1,6 @@
 package com.sample.retrofit.config;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.sample.retrofit.service.ExchangeRetrofit;
 import com.sample.retrofit.service.ExchangeService;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.OkHttpClient;
@@ -60,8 +61,8 @@ public class RetrofitConfig {
     }
 
     @Bean
-    public ExchangeService exchangeService(final Retrofit retrofit) {
-        return retrofit.create(ExchangeService.class);
+    public ExchangeRetrofit exchangeService(final Retrofit retrofit) {
+        return retrofit.create(ExchangeRetrofit.class);
     }
 
 
