@@ -23,8 +23,8 @@ public class MainController {
         param.setSymbols("KRW,HKD,JPY");
 
 
-        exchangeService.getExchangeInfo(param);
-        System.out.println("1");
+        String result = exchangeService.getExchangeInfo(param);
+        System.out.println(result);
 
         return "getTest1";
     }

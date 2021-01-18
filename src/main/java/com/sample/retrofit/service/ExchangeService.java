@@ -12,6 +12,6 @@ import java.io.IOException;
 
 public interface ExchangeService {
 
-    void getExchangeInfo(Exchange param) throws IOException;
+    String getExchangeInfo(Exchange param) throws IOException;
     Response<ResponseBody> responseExchange(Exchange param) throws IOException ;
 }

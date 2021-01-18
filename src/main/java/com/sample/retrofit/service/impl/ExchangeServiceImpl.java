@@ -10,6 +10,8 @@ import retrofit2.Call;
 import retrofit2.Response;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 @Service
 public class ExchangeServiceImpl implements ExchangeService {
@@ -37,8 +39,12 @@ public class ExchangeServiceImpl implements ExchangeService {
     }
 
     @Override
-    public void getExchangeInfo(Exchange param) throws IOException {
+    public String getExchangeInfo(Exchange param) throws IOException {
         Response<ResponseBody> responseExchange = this.responseExchange(param);
+
+        Map<String, Object> map = new HashMap<>();
+        return responseExchange.body().source().toString();
+
     }
 
 
