@@ -1,6 +1,7 @@
 package com.sample.retrofit.service.impl;
 
 import com.sample.retrofit.domain.Exchange;
+import com.sample.retrofit.domain.ResponseExchange;
 import com.sample.retrofit.service.ExchangeRetrofit;
 import com.sample.retrofit.service.ExchangeService;
 import okhttp3.ResponseBody;
@@ -11,6 +12,7 @@ import retrofit2.Response;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -26,24 +28,24 @@ public class ExchangeServiceImpl implements ExchangeService {
 
 
     @Override
-    public Response<ResponseBody> responseExchange(Exchange param) throws IOException {
+    public Response responseExchange(Exchange param) throws IOException {
 
-        Call<ResponseBody> call = exchangeRetrofit.callExchangeInfo(
+        Call<ResponseExchange> call = exchangeRetrofit.callExchangeInfo(
                 param.getSymbols(),
                 param.getBase()
         );
 
-        Response<ResponseBody> response = call.execute();
+        Response response = call.execute();
 
         return  response;
     }
 
     @Override
-    public String getExchangeInfo(Exchange param) throws IOException {
-        Response<ResponseBody> responseExchange = this.responseExchange(param);
+    public ResponseExchange getExchangeInfo(Exchange param) throws IOException {
+        Response responseExchange = this.responseExchange(param);
 
-        Map<String, Object> map = new HashMap<>();
-        return responseExchange.body().source().toString();
+        ResponseExchange exchange = (ResponseExchange) responseExchange.body();
+        return exchange;
 
     }
 

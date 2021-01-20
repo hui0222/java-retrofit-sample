@@ -2,11 +2,14 @@ package com.sample.retrofit.domain;
 
 import lombok.Data;
 
+import java.util.List;
+import java.util.Map;
+
 @Data
 public class Exchange {
-    String krw;
-    String usd;
-    String jpy;
+    String KRW;
+    String HKD;
+    String JPY;
     String symbols;
     String base;
 }

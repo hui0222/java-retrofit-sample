@@ -2,13 +2,11 @@ package com.sample.retrofit.domain;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class ResponseExchange {
-    String usd;
-    String jpy;
-    String symbols;
-    String base;
-
     Object rates;
+    String base;
     String date;
 }

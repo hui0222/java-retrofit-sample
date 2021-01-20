@@ -1,6 +1,7 @@
 package com.sample.retrofit.controller;
 
 import com.sample.retrofit.domain.Exchange;
+import com.sample.retrofit.domain.ResponseExchange;
 import com.sample.retrofit.service.ExchangeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,17 +17,17 @@ public class MainController {
     ExchangeService exchangeService;
 
     @RequestMapping(path = "/exchange/list",method = RequestMethod.GET)
-    public String getExchange() throws IOException {
+    public ResponseExchange getExchange() throws IOException {
         //base=USD&symbols=KRW,HKD,JPY
         Exchange param = new Exchange();
         param.setBase("USD");
         param.setSymbols("KRW,HKD,JPY");
 
 
-        String result = exchangeService.getExchangeInfo(param);
-        System.out.println(result);
+        ResponseExchange resultExchange = exchangeService.getExchangeInfo(param);
+        System.out.println(resultExchange);
 
-        return "getTest1";
+        return resultExchange;
     }
 
 
